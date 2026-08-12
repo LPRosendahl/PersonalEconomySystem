@@ -11,7 +11,7 @@ public class Main {
         Storage storage = new Storage();
         Controller controller = new Controller(storage);
 
-        Profile lucas = controller.createProfile("LucasRosendahl", "Rosendahl2812");
+        System.out.println(storage.getProfiles());
 
     }
 }

@@ -16,4 +16,9 @@ public class Profile {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return "{Profile: " + username + ", " + password +"}";
+    }
 }
