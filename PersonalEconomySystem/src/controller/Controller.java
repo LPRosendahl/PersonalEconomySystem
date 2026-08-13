@@ -23,6 +23,16 @@ public class Controller {
         this.currentProfile = currentProfile;
     }
 
+    public Profile login(String username, String password) {
+        for (Profile profile : storage.getProfiles()) {
+            if (profile.getUsername().equals(username) && profile.getPassword().equals(password)) {
+                this.currentProfile = profile;
+                return profile;
+            }
+        }
+        return null;
+    }
+
     public void createProfile(String username, String password) {
         Profile profile = new Profile(username, password);
         storage.addProfile(profile);
@@ -50,26 +60,6 @@ public class Controller {
 
         return startbeloebVaekst + indbetalingerVaekst;
     }
-
-//    public double compoundInterestCalculator(double startBeloeb, double maanedligIndbetaling, double aarligRenteProcent, double aar) {
-//        double maanedligRente =  (aarligRenteProcent / 100.0) / 12.0;
-//        double antalMaaneder = aar * 12.0;
-//
-//        // Rentes rente på startbeløbet
-//        double startbeloebVaekst = startBeloeb * Math.pow(1 + maanedligRente, antalMaaneder);
-//
-//        // Hvis der er en månedlig rente > 0, beregnes opsparingen via annuitetsformlen
-//        double indbetalingerVaekst = 0;
-//        if (maanedligRente > 0) {
-//            indbetalingerVaekst = maanedligIndbetaling * ((Math.pow(1 + maanedligRente, antalMaaneder) - 1) / maanedligRente);
-//        } else {
-//            // Hvis renten er 0%, lægges indbetalingerne blot sammen
-//            indbetalingerVaekst = maanedligIndbetaling * antalMaaneder;
-//        }
-//
-//
-//        return startbeloebVaekst + indbetalingerVaekst;
-//    }
 
 }
 

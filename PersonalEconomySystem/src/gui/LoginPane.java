@@ -61,26 +61,17 @@ public class LoginPane extends GridPane {
         buttonLogintoProfile.setOnAction(event -> logIntoProfile());
         buttonCancel.setOnAction(event -> gui.changePane(new IndexPane(gui, controller)));
 
+        passwordFieldPassword.setOnAction(event -> logIntoProfile());
+
     }
 
     private void logIntoProfile() {
         String userName = textFieldUsername.getText().trim();
         String password = passwordFieldPassword.getText().trim();
-        Profile foundProfile = null;
-        boolean found = false;
-        int i = 0;
 
-        while (!found && i < controller.getStorage().getProfiles().size()) {
-            Profile profile = controller.getStorage().getProfiles().get(i);
-            if (profile.getUsername().equals(userName) && profile.getPassword().equals(password)) {
-                foundProfile = profile;
-                found = true;
-            }
-            i++;
-        }
+        Profile profile = controller.login(userName, password);
 
-        if (found) {
-            controller.setCurrentProfile(foundProfile);
+        if (profile != null) {
             gui.changePane(new DashboardPane(gui, controller));
         } else {
             Alert alertWrongPassword = new Alert(Alert.AlertType.ERROR);
@@ -89,6 +80,5 @@ public class LoginPane extends GridPane {
             alertWrongPassword.setContentText("Try again with the correct username and password");
             alertWrongPassword.showAndWait();
         }
-
     }
 }

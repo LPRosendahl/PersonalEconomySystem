@@ -3,6 +3,7 @@ package gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import controller.Controller;
 
@@ -21,12 +22,17 @@ public class ProfilePane extends GridPane {
         this.setStyle("-fx-background-color: linear-gradient(to bottom right, #2c3e50, #4ca1af);");
         this.setAlignment(Pos.CENTER);
 
+        Label labelUsername = new Label("Username:");
+        Label labelEmail = new Label("E-mail:");
+
         Button buttonBack = new Button("Back");
         Button buttonLogout = new Button("Log out");
 
         buttonBack.setPrefWidth(120);
         buttonLogout.setPrefWidth(120);
 
+        this.add(labelUsername, 0,0);
+        this.add(labelEmail,0,1);
         this.add(buttonBack, 0, 0);
         this.add(buttonLogout,0,1);
 

@@ -92,6 +92,15 @@ public class CreateProfilePane extends GridPane {
             }
         }
 
+        if (!password.equals(repeatedPassword)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Create Profile");
+            alert.setHeaderText("Passwords do not match");
+            alert.setContentText("Please make sure your passwords match.");
+            alert.showAndWait();
+            return;
+        }
+
         if (occupiedUsername) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Create profile");
