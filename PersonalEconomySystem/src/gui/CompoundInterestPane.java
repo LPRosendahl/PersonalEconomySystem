@@ -79,19 +79,4 @@ public class CompoundInterestPane extends GridPane {
             textFieldAfkast.setText("Ugyldigt input");
         }
     }
-
-//    private void calculateProfit() {
-//        try {
-//            double startKapital = Double.parseDouble(textFieldStartkapital.getText());
-//            double maanedligIndbetaling = Double.parseDouble(textFieldMaanedlig.getText());
-//            double rente = Double.parseDouble(textFieldRente.getText());
-//            double aar = Double.parseDouble(textFieldAar.getText());
-//
-//            double profit = controller.compoundInterestCalculator(startKapital, maanedligIndbetaling, rente, aar);
-//
-//            textFieldAfkast.setText(String.format("%.2f kr.", profit));
-//        } catch (NumberFormatException e) {
-//            textFieldAfkast.setText("Invalid input");
-//        }
-//    }
 }

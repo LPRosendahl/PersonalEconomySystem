@@ -29,6 +29,24 @@ public class Controller {
         this.currentProfile = profile;
     }
 
+    public void changeUsername(Profile profile, String username) {
+        boolean match = false;
+
+        for (Profile storageProfile : storage.getProfiles()) {
+            if (storageProfile.getUsername().equalsIgnoreCase(username)) {
+                match = true;
+            }
+        }
+
+        if (!match) {
+            profile.setUsername(username);
+        }
+    }
+
+    public void changeEmail(Profile profile, String email) {
+       //TODO
+    }
+
     public double compoundInterestCalculator(double startBeloeb, double maanedligIndbetaling, double aarligRenteProcent, double aar) {
         // 1. Omregn årlig rente til reel månedlig rentefaktor (som Nordnet/Danske Bank gør)
         double maanedligRente = Math.pow(1 + (aarligRenteProcent / 100.0), 1.0 / 12.0) - 1;
@@ -50,26 +68,5 @@ public class Controller {
 
         return startbeloebVaekst + indbetalingerVaekst;
     }
-
-//    public double compoundInterestCalculator(double startBeloeb, double maanedligIndbetaling, double aarligRenteProcent, double aar) {
-//        double maanedligRente =  (aarligRenteProcent / 100.0) / 12.0;
-//        double antalMaaneder = aar * 12.0;
-//
-//        // Rentes rente på startbeløbet
-//        double startbeloebVaekst = startBeloeb * Math.pow(1 + maanedligRente, antalMaaneder);
-//
-//        // Hvis der er en månedlig rente > 0, beregnes opsparingen via annuitetsformlen
-//        double indbetalingerVaekst = 0;
-//        if (maanedligRente > 0) {
-//            indbetalingerVaekst = maanedligIndbetaling * ((Math.pow(1 + maanedligRente, antalMaaneder) - 1) / maanedligRente);
-//        } else {
-//            // Hvis renten er 0%, lægges indbetalingerne blot sammen
-//            indbetalingerVaekst = maanedligIndbetaling * antalMaaneder;
-//        }
-//
-//
-//        return startbeloebVaekst + indbetalingerVaekst;
-//    }
-
 }
 
