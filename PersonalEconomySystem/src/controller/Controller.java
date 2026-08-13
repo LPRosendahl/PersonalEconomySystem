@@ -23,6 +23,16 @@ public class Controller {
         this.currentProfile = currentProfile;
     }
 
+    public Profile login(String username, String password) {
+        for (Profile profile : storage.getProfiles()) {
+            if (profile.getUsername().equals(username) && profile.getPassword().equals(password)) {
+                this.currentProfile = profile;
+                return profile;
+            }
+        }
+        return null;
+    }
+
     public void createProfile(String username, String password) {
         Profile profile = new Profile(username, password);
         storage.addProfile(profile);
