@@ -85,6 +85,8 @@ public class ProfilePane extends GridPane {
         //this.add(textFieldEmail,1,2,1,1);
         this.add(buttonBox,0,3,3,1);
 
+        buttonChangeUsername.setOnAction(event -> gui.changePane(new ChangeUsernamePane(gui, controller)));
+
         buttonLogout.setOnAction(event -> {
             controller.setCurrentProfile(null);
             gui.changePane(new IndexPane(gui, controller));
